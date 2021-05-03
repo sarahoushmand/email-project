@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Home</title>
+    {% load static %}
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark ">
+    <p class="navbar-text text-warning"> Home </p>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-12">
+            <div class="inbox bg-secondary">
+                {% if not message  %}<h4 class="text-center bg-secondary text-warning " id="no-messageol">No Message</h4>{% endif %}
+                {% block getMessage %}{% endblock %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-8" style="border: black">
+            <div class="row">
+                <form action='{% url 'generate_email:generate' %}' method='GET'>
+                    <button type='submit' class="btn btn-info"> generate email </button>
+                </form>
+            </div>
+            <div class="text-center bg-secondary text-warning col-lg-8 col-md-4" id="inbox">
+                <h2> inbox </h2>
+            </div>
+            {% block message_list %}{% endblock %}
+            <div>
+                <form action='{% url 'generate_email:email' %}' method='GET'>
+                    <button type='submit' id="btn-refresh" class="btn bg-secondary "> <i id="refresh" class="fa ">&#xf021;</i> </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5 col-md-6 bg-info email-address-div email-address">
+            <p id="email-id"> your email: {{ request.session.email }} </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

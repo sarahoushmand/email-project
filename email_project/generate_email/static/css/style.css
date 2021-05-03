@@ -1,0 +1,61 @@
+.navbar{
+    height: 50px;
+}
+.navabar-text{
+    margin-top: 5px;
+}
+.btn{
+    margin-top: 40px;
+}
+.inbox{
+    margin-top: 40px;
+    height: 600px;
+}
+.inbox-text{
+    padding: 12px;
+}
+.email-address-div{
+    max-height: 40px;
+    margin-top: 35px;
+    border: 2px solid gray;
+    border-radius: 25px;
+    margin-left: 12px;
+
+}
+.email-address{
+    margin-top: 5px;
+    color: azure;
+}
+div#list-group{
+    padding: 10px;
+    max-height: 444px;
+    overflow-y: auto;
+}
+a#item{
+    margin-left: -10px;
+}
+h6#from{
+    font-weight: bold
+}
+div#inbox{
+    margin-top: 30px;
+    border-radius: 25px;
+}
+i#refresh{
+    font-size:24px;
+    color: goldenrod;
+}
+button#btn-refresh{
+    margin-top: 0px;
+    width: 268px;
+    margin-left: -15px;
+}
+p#email-id{
+    padding-top: 6px;
+}
+div.separate{
+    border-bottom: 1px solid goldenrod;
+}
+h4#no-message{
+    padding-top: 10px;
+}

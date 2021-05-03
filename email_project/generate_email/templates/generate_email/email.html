@@ -1,0 +1,17 @@
+{% extends 'generate_email/master.html' %}
+{% block message_list %}
+    <div class="row">
+        <div class="list-group" id="list-group">
+            {% for m in inbox %}
+                <a href="{% url 'generate_email:message' m.id %}" id="item" class="list-group-item list-group-item-action {% if message.id == m.id %}
+                active
+                {% endif %} ">
+                    from: <h6 id="from">{{ m.from}}</h6>
+                    Date: {{ m.date }}
+                    <br>
+                    Subject: {{ m.subject }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

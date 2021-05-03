@@ -1,0 +1,21 @@
+{% extends 'generate_email/email.html' %}
+{% block getMessage %}
+    <div class="inbox-text text-warning">
+        <h6>
+            From: {{ message.from }}
+        </h6>
+        Date: {{ message.date }}
+        <br>
+        Subject: {{ message.subject }}
+    </div>
+    <div class="separate"></div>
+    <div class="inbox-text">
+        <p>
+            {{ message.body| safe}}
+            {% for file in message.attachments %}
+                <a href="https://www.1secmail.com/api/v1/?action=download&login={{ request.session.username }}&domain={{ request.session.domain }}&id={{ message.id }}&file={{ file.filename }}">{{ file.filename }}</a>
+            {% endfor %}
+        </p>
+    </div>
+
+{% endblock %}
